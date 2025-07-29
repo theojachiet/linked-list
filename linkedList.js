@@ -1,8 +1,8 @@
 import { Node } from "./node";
 
 export class LinkedList {
-    construcotr () {
-        this.head = null; 
+    construcotr() {
+        this.head = null;
     }
 
     prepend(value) {
@@ -14,7 +14,7 @@ export class LinkedList {
             this.prepend(value);
         else {
             let temp = this.head;
-            
+
             while (temp.nextNode != null) {
                 temp = temp.nextNode;
             }
@@ -27,7 +27,7 @@ export class LinkedList {
         let count = 0;
         let temp = this.head;
 
-        while(temp.nextNode !== null) {
+        while (temp.nextNode !== null) {
             temp = temp.nextNode;
             count++;
         }
@@ -47,9 +47,9 @@ export class LinkedList {
 
     at(index) {
         if (index < 0) {
-            throw new Error ('you must enter a positive index');
+            throw new Error('you must enter a positive index');
         }
-        
+
         let currentIndex = 0;
         let temp = this.head;
 
@@ -61,12 +61,61 @@ export class LinkedList {
             temp = temp.nextNode;
         }
 
-        return new Error('Ibndex out of bounds');
+        return new Error('Index out of bounds');
+    }
+
+    pop() {
+        let temp = this.head;
+        let next = temp.nextNode;
+
+        while (next !== null) {
+            temp = next;
+            next = next.nextNode;
+        }
+
+        //last node is not deleted but no reference is pointing to it anymore, the garbagecollector will get it.
+        temp.nextNode = null;
+    }
+
+    contains(value) {
+        let temp = this.head;
+
+        while (temp.nextNode !== null) {
+            if (temp.value === value) return true;
+            temp = temp.nextNode;
+        }
+
+        return false;
+    }
+
+    find(value) {
+        let temp = this.head;
+        let currentIndex = 0;
+
+        while (temp.nextNode !== null) {
+            if (temp.value === value) return currentIndex;
+            temp = temp.nextNode;
+            currentIndex++;
+        }
+
+        return null;
+    }
+
+    toString() {
+        let temp = this.head;
+        let str = '';
+
+        while (temp.nextNode !== null) {
+            str += `(${temp.value}) -> `;
+        }
+
+        str += 'null';
+        return str;
     }
 }
 
 export class Node {
-    constructor (value = null, nextNode = null) {
+    constructor(value = null, nextNode = null) {
         this.value = value;
         this.nextNode = nextNode;
     }
