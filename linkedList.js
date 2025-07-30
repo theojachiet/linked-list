@@ -116,6 +116,24 @@ export class LinkedList {
         str += 'null';
         return str;
     }
+
+    insertAt(value, index) {
+        if (index < 0 || index > this.size()) throw new Error('Index out of bounds');
+        //head and tail special cases handling
+        if (index === 0) return this.prepend(value);
+        if (index === this.size() - 1) return this.append(value);
+
+        let temp = this.head;
+        let currentIndex = 1;
+
+        while (currentIndex !== index) {
+            currentIndex++;
+            temp = temp.nextNode;
+        }
+
+        let next = temp.nextNode;
+        temp.nextNode = new Node(value, next);
+    }
 }
 
 export class Node {

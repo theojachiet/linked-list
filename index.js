@@ -12,6 +12,5 @@ list.append("turtle");
 console.log(list.toString());
 
 list.prepend('ouistiti');
-
+list.insertAt('koala', 5)
 console.log(list.toString());
-console.log(list.find("turtle"));
