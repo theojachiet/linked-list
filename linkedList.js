@@ -59,6 +59,8 @@ export class LinkedList {
             temp = temp.nextNode;
         }
 
+        if (currentIndex === index) return temp;
+
         return new Error('Index out of bounds');
     }
 
@@ -95,6 +97,8 @@ export class LinkedList {
             temp = temp.nextNode;
             currentIndex++;
         }
+
+        if (temp.value === value) return currentIndex;
 
         return null;
     }

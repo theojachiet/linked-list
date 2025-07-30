@@ -9,5 +9,9 @@ list.append("hamster");
 list.append("snake");
 list.append("turtle");
 
-list.pop();
 console.log(list.toString());
+
+list.prepend('ouistiti');
+
+console.log(list.toString());
+console.log(list.find("turtle"));
