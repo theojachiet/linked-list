@@ -1,5 +1,3 @@
-import { Node } from "./node";
-
 export class LinkedList {
     construcotr() {
         this.head = null;
@@ -24,10 +22,10 @@ export class LinkedList {
     }
 
     size() {
-        let count = 0;
+        let count = 1;
         let temp = this.head;
 
-        while (temp.nextNode !== null) {
+        while (temp.nextNode != null) {
             temp = temp.nextNode;
             count++;
         }
@@ -38,7 +36,7 @@ export class LinkedList {
     tail() {
         let temp = this.head;
 
-        while (temp.nextNode !== null) {
+        while (temp.nextNode != null) {
             temp = temp.nextNode;
         }
 
@@ -53,7 +51,7 @@ export class LinkedList {
         let currentIndex = 0;
         let temp = this.head;
 
-        while (temp.nextNode !== null) {
+        while (temp.nextNode != null) {
             if (currentIndex === index) {
                 return temp;
             }
@@ -68,7 +66,7 @@ export class LinkedList {
         let temp = this.head;
         let next = temp.nextNode;
 
-        while (next !== null) {
+        while (next.nextNode != null) {
             temp = next;
             next = next.nextNode;
         }
@@ -80,19 +78,19 @@ export class LinkedList {
     contains(value) {
         let temp = this.head;
 
-        while (temp.nextNode !== null) {
+        while (temp.nextNode != null) {
             if (temp.value === value) return true;
             temp = temp.nextNode;
         }
 
-        return false;
+        return temp.value === value;
     }
 
     find(value) {
         let temp = this.head;
         let currentIndex = 0;
 
-        while (temp.nextNode !== null) {
+        while (temp.nextNode != null) {
             if (temp.value === value) return currentIndex;
             temp = temp.nextNode;
             currentIndex++;
@@ -105,10 +103,12 @@ export class LinkedList {
         let temp = this.head;
         let str = '';
 
-        while (temp.nextNode !== null) {
+        while (temp.nextNode != null) {
             str += `(${temp.value}) -> `;
+            temp = temp.nextNode;
         }
 
+        str += `(${temp.value}) -> `;
         str += 'null';
         return str;
     }

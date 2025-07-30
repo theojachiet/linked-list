@@ -1,0 +1,20 @@
+{
+  "name": "linked-list",
+  "version": "1.0.0",
+  "description": "personal linked list implementation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theojachiet/linked-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theojachiet/linked-list/issues"
+  },
+  "homepage": "https://github.com/theojachiet/linked-list#readme"
+}
