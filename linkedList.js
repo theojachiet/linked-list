@@ -1,5 +1,5 @@
 export class LinkedList {
-    construcotr() {
+    constructor() {
         this.head = null;
     }
 
@@ -133,6 +133,30 @@ export class LinkedList {
 
         let next = temp.nextNode;
         temp.nextNode = new Node(value, next);
+    }
+
+    removeAt(index) {
+        if (index < 0 || index > this.size() - 1) throw new Error('Index out of bounds');
+        if (index === this.size() - 1) return this.pop();
+
+        let prev = this.head;
+        let temp = prev.nextNode;
+        
+        if (index === 0) {
+            this.head = this.head.nextNode;
+            return;
+        }
+
+        let currentIndex = 1;
+
+        while (currentIndex !== index) {
+            currentIndex++;
+            prev = prev.nextNode;
+            temp = temp.nextNode;
+        }
+
+        let next = temp.nextNode;
+        prev.nextNode = next;
     }
 }
 
